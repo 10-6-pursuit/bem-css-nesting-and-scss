@@ -6,7 +6,7 @@ By the end of this lesson you should
 
 - Understand and be able to use BEM naming convention
 - Know how to use nesting with CSS Selectors
-- Understand how to nest properly using by utilizing BEM
+- Understand how to nest properly by utilizing BEM
 - Understand what SASS and SCSS are
 - Use Variables, Partials and `&` in SCSS
 
