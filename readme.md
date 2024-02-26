@@ -186,12 +186,6 @@ CSS class is formed as block’s or element’s name plus two dashes: .block--mo
   width: 100px;
 }
 
-.info-card__title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
 .info-card__content {
   font-size: 16px;
   line-height: 1.5;
@@ -233,3 +227,179 @@ CSS class is formed as block’s or element’s name plus two dashes: .block--mo
 As of late it is possible to nest css rules inside each other. That allows us to group together CSS rules that belong in the same block, which aligns with using BEM.
 
 Let's change our CSS file to use nesting!
+
+<details>
+
+``` CSS
+/* Styling for the cards */
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.info-card {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  height: 200px;
+  width: 100px;
+
+  .info-card__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .info-card__content {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+/* Styling for the form */
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  .form__input {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .form__submit {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+
+  .form__submit--disabled {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+  }
+}
+```
+</details>
+
+## SASS & SCSS
+
+### SASS
+
+CSS on its own can be fun, but stylesheets are getting larger, more complex, and harder to maintain. Sass is a CSS pre-processor with syntax advancements. Stylesheets in the advanced syntax are processed by the program, and turned into regular CSS style sheets. Sass has features that don’t exist in CSS yet like nesting, partials, variables, and others that help you write robust, maintainable CSS.
+
+### SCSS
+
+The SCSS syntax uses the file extension `.scss` With a few small exceptions, it’s a superset of CSS, which means essentially all valid CSS is valid SCSS as well. Because of its similarity to CSS, it’s the easiest syntax to get used to and the most popular.
+
+SASS has a different syntax than CSS. SCSS allows you to use all the functionality of SASS with CSS syntax
+
+## Install and use SASS & SCSS
+
+```
+touch input.scss
+```
+
+visit [SASS official website](https://sass-lang.com/install/) to install it on your machine
+
+copy over to your new scss file
+
+``` SCSS
+/* Styling for the cards */
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.info-card {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  height: 200px;
+  width: 100px;
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  &__content {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+/* Styling for the form */
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  &__input {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  &__submit {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+
+  &__submit--disabled {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+  }
+}
+```
+
+let's use sass to create a css file from our scss file `sass --watch input.scss output.css`
+
+now let's link `output.css` to our `html` file and see that it still looks the same
+
+## Features of SCSS
+
+### `&`
+
+Allows us to concat together class names
+
+### Variables
+
+We can save our main colors, dimensions, and anything else we might want to a variable to easily be used across our app
+
+### 
+
+```SCSS
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+```
+
+## Links and Resources
+
+[Learn more about BEM](https://getbem.com/)
+[Learn more about SASS](https://sass-lang.com/guide/)
